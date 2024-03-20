@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파일 종류 선택기</title>
+<style>
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    select {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    #result {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>파일 종류 선택기</h1>
+    <select id="fileType" onchange="displayFileType()">
+        <option value="none">파일 종류를 선택하세요</option>
+        <option value="image">이미지 파일</option>
+        <option value="document">문서 파일</option>
+        <option value="video">동영상 파일</option>
+        <option value="audio">오디오 파일</option>
+        
+        <option value="audio">프로그래밍 파일</option>
+    </select>
+    <div id="result"></div>
+
+    <script>
+        function displayFileType() {
+            var selectBox = document.getElementById("fileType");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            var resultDiv = document.getElementById("result");
+
+            switch (selectedValue) {
+                case "image":
+                    resultDiv.innerHTML = "JPEG (.jpg, .jpeg) PNG (.png)  GIF (.gif) BMP (.bmp) TIFF (.tiff, .tif) WebP (.webp)";
+                    break;
+                case "document":
+                    resultDiv.innerHTML = "텍스트 파일 (.txt) Microsoft Word (.doc, .docx) Microsoft Excel (.xls, .xlsx) Microsoft PowerPoint (.ppt, .pptx) PDF (.pdf) OpenDocument Format (.odt, .ods, .odp)";
+                    break;
+                case "video":
+                    resultDiv.innerHTML = "MP4 (.mp4) AVI (.avi) WMV (.wmv) MOV (.mov) MKV (.mkv) FLV (.flv)";
+                    break;
+                case "audio":
+                    resultDiv.innerHTML = "MP3 (.mp3) WAV (.wav) FLAC (.flac) AAC (.aac) OGG (.ogg) WMA (.wma)";
+                    break;
+                    
+                case "audio":
+                    resultDiv.innerHTML = "JavaScript (.js), Python (.py), Java (.java), C (.c), C++ (.cpp), C# (.cs), HTML (.html, .htm), CSS (.css), JSON (.json), XML (.xml)";
+                    break;
+                default:
+                    resultDiv.innerHTML = "";
+                    break;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
